@@ -19,7 +19,7 @@
 void *gc_malloc(size_t size) {
     void *allocated = malloc(size + sizeof(int));
 
-    *(int *) allocated = 1;
+    *(int *) allocated = 2;
 
     return allocated + sizeof(int);
 }
