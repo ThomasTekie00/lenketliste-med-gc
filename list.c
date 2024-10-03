@@ -14,8 +14,8 @@ typedef struct node    //Slipper å kalle på struct hvergang og gir kallenavn t
 //Definerer strukturen for listen
 typedef struct list
 {
-    node_t *head   //Pointer til første noden i listen
-} list_t;           //Nye navnet på struct listen
+    node_t *head;   //Pointer til første noden i listen
+}list_t;           //Nye navnet på struct listen
 
 //funksjon for å lage en ny liste
 list_t *list_create(void)
