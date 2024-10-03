@@ -11,11 +11,15 @@ typedef struct node    //Slipper å kalle på struct hvergang og gir kallenavn t
 }node_t;               //Nye navnet på struct noden
 
 
+
+
 //Definerer strukturen for listen
 typedef struct list
 {
     node_t *head;   //Pointer til første noden i listen
 }list_t;           //Nye navnet på struct listen
+
+
 
 
 
@@ -30,6 +34,9 @@ list_t *list_create(void)
     list->head = NULL;   //Starter tomt, så head pointer til NULL
     return list;
 }
+
+
+
 
 void list_addfirst(list_t *list, void *item)
 {
