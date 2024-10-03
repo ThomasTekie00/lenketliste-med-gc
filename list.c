@@ -35,7 +35,9 @@ list_t *list_create(void)
     }
     list->head = NULL;   //Starter tomt, så head pointer til NULL
     list->tail = NULL;
-    
+
+  
+  
     return list;
 }
 
@@ -62,8 +64,9 @@ void list_destroy(list_t *list)
 {
     node_t *current = list->head;         //Starter med å pointe til første node
     node_t *next_node;                   //Lager en pointer for neste node
-    
-    
+
+ 
+  
     while (current != NULL)             //Går gjennom hver node i listen
     {
         next_node = current -> next;          //Lagrer pointeren til neste node
@@ -93,14 +96,12 @@ void list_addlast(list_t *list, void *item)
     if (list -> head == NULL)       //Om listen er tom
     {
         list -> head = new_node;   //Så settes neste node til den nye og første noden
-        list ->tail = new_node;
-   
-   
-    } else {
+        list -> tail = new_node;
+     
+     } else {
         list->tail->next = new_node;  // Oppdater tail til å peke på den nye noden
         list->tail = new_node;        // Oppdater tail til å være den nye noden
-        }
-    
+    }
     
 }
 
