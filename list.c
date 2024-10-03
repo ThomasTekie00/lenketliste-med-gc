@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
+/*Inspirasjon fra https://www.geeksforgeeks.org/singly-linked-list-tutorial/#node-definition */
 //Definerer strukturen for en node
 typedef struct node    //Slipper å kalle på struct hvergang og gir kallenavn til node
 {

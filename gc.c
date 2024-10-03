@@ -40,6 +40,10 @@ void gc_register(void *address) {
 // Unregisters use of the memory pointed to by ptr. If the reference counter is
 // zero at this point the memory can be safely freed, otherwise it must be kept
 // intact. 
+
+
+
+// Denne funksjonen har jeg skrevet/debugget med hjelp fra chat.uit.no;
 void gc_free(void *address) {
     if (!address) return;  // Sjekk om adressen er NULL og returner umiddelbart hvis det er tilfellet
 
