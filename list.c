@@ -112,6 +112,8 @@ void list_remove(list_t *list, void *item)
     
 }
 
+
+
 int list_size(list_t *list)
 {
     if (list == NULL || list -> head == NULL) //Sjekker om listen er NULL eller tom
@@ -136,6 +138,8 @@ typedef struct list_iterator{
     list_t* list;                       //Pointer til listen som itereres over
     struct node* current;               //Pointer til noden som pointes på i listen som itereren pointer på
 } list_iterator_t;
+
+
 
 
 
