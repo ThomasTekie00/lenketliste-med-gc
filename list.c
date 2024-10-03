@@ -23,6 +23,8 @@ typedef struct list
 
 
 
+
+
 //funksjon for å lage en ny liste
 list_t *list_create(void)
 {
@@ -36,6 +38,9 @@ list_t *list_create(void)
     
     return list;
 }
+
+
+
 
 void list_addfirst(list_t *list, void *item)
 {
