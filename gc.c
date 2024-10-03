@@ -60,21 +60,4 @@ void gc_free(void *address) {
     }
 }
 
-int main(){
-    void *ptr = gc_malloc(100);
-    gc_free(ptr);
-    
-    void *ptr2 = gc_malloc(200);
-    gc_register(ptr2);
-    gc_free(ptr2);
-    gc_free(ptr2);
 
-    gc_free(NULL);
-
-    printf("Alle tester er fullført.\n");
-
-    return 0;
-    
-
-    
-}
