@@ -14,8 +14,8 @@ typedef struct node    //Slipper å kalle på struct hvergang og gir kallenavn t
 //Definerer strukturen for listen
 typedef struct list
 {
-    node_t *head   //Pointer til første noden i listen
-} list_t;           //Nye navnet på struct listen
+    node_t *head;   //Pointer til første noden i listen
+}list_t;           //Nye navnet på struct listen
 
 //funksjon for å lage en ny liste
 list_t *list_create(void)
@@ -112,6 +112,8 @@ void list_remove(list_t *list, void *item)
     
 }
 
+
+
 int list_size(list_t *list)
 {
     if (list == NULL || list -> head == NULL) //Sjekker om listen er NULL eller tom
@@ -136,6 +138,8 @@ typedef struct list_iterator{
     list_t* list;                       //Pointer til listen som itereres over
     struct node* current;               //Pointer til noden som pointes på i listen som itereren pointer på
 } list_iterator_t;
+
+
 
 
 
