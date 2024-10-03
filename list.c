@@ -35,8 +35,9 @@ list_t *list_create(void)
     }
     list->head = NULL;   //Starter tomt, så head pointer til NULL
     list->tail = NULL;
-   
-   
+
+  
+  
     return list;
 }
 
@@ -63,14 +64,16 @@ void list_destroy(list_t *list)
 {
     node_t *current = list->head;         //Starter med å pointe til første node
     node_t *next_node;                   //Lager en pointer for neste node
-   
-   
+
+ 
+  
     while (current != NULL)             //Går gjennom hver node i listen
     {
         next_node = current -> next;          //Lagrer pointeren til neste node
         free(current);                        //Blir kvitt minnet til noden som pointes på
         current = next_node;                 //Går fra noden som pointes på til neste node
     } 
+   
     free(list);                             //Blir kvitt minnet til listen
 }
 
