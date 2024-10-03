@@ -17,6 +17,8 @@ typedef struct node    //Slipper å kalle på struct hvergang og gir kallenavn t
 typedef struct list
 {
     node_t *head;   //Pointer til første noden i listen
+    node_t *tail;
+
 }list_t;           //Nye navnet på struct listen
 
 
@@ -32,6 +34,9 @@ list_t *list_create(void)
         return NULL;
     }
     list->head = NULL;   //Starter tomt, så head pointer til NULL
+    list->tail = NULL;
+   
+   
     return list;
 }
 
@@ -58,6 +63,8 @@ void list_destroy(list_t *list)
 {
     node_t *current = list->head;         //Starter med å pointe til første node
     node_t *next_node;                   //Lager en pointer for neste node
+   
+   
     while (current != NULL)             //Går gjennom hver node i listen
     {
         next_node = current -> next;          //Lagrer pointeren til neste node
@@ -86,16 +93,12 @@ void list_addlast(list_t *list, void *item)
     if (list -> head == NULL)       //Om listen er tom
     {
         list -> head = new_node;   //Så settes neste node til den nye og første noden
-    } else {
-        node_t *current = list->head;    //Om listen ikke er tom, så startes det på første noden
-        
-        while(current ->next != NULL)     //Finne siste noden i lista
-        {
-            current = current -> next;  //Fortsetter til neste node
-         }
-        current -> next = new_node;  //Kobler den siste noden til den nye
-        }
-    
+        list -> tail = new_node;
+     
+     } else {
+        list->tail->next = new_node;  // Oppdater tail til å peke på den nye noden
+        list->tail = new_node;        // Oppdater tail til å være den nye noden
+    }
     
 }
 
