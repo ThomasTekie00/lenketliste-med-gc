@@ -17,6 +17,8 @@ typedef struct list
     node_t *head;   //Pointer til første noden i listen
 }list_t;           //Nye navnet på struct listen
 
+
+
 //funksjon for å lage en ny liste
 list_t *list_create(void)
 {
@@ -42,6 +44,9 @@ void list_addfirst(list_t *list, void *item)
     list -> head = new_node;                   //Oppdaterer listen slik at den nye noden blir den første
 }
 
+
+
+
 void list_destroy(list_t *list)
 {
     node_t *current = list->head;         //Starter med å pointe til første node
@@ -54,6 +59,10 @@ void list_destroy(list_t *list)
     } 
     free(list);                             //Blir kvitt minnet til listen
 }
+
+
+
+
 
 
 void list_addlast(list_t *list, void *item)
@@ -83,6 +92,10 @@ void list_addlast(list_t *list, void *item)
     
 }
 
+
+
+
+
 void list_remove(list_t *list, void *item)
 {
     if(list == NULL || list -> head == NULL){  //list == NULL sjekker om selve listen er NULL, mens list -> NULL sjekker om listen er tom
@@ -111,6 +124,9 @@ void list_remove(list_t *list, void *item)
     }
     
 }
+
+
+
 
 
 
@@ -144,6 +160,11 @@ typedef struct list_iterator{
 
 
 
+
+
+
+
+
 list_iterator_t *list_createiterator(list_t *list)     //Lager iterator
 {
     if (list == NULL || list ->head == NULL)           //Sjekker om listen er tom elelr NULL
@@ -165,6 +186,10 @@ list_iterator_t *list_createiterator(list_t *list)     //Lager iterator
 
 
 
+
+
+
+
 void list_destroyiterator(list_iterator_t *iter)
 {
     if(iter != NULL)         //Sjekker om iteratoren ikke er NULL
@@ -172,6 +197,9 @@ void list_destroyiterator(list_iterator_t *iter)
         free(iter);          //Slipper minnet til iteratoren
     } 
 }
+
+
+
 
 void *list_next(list_iterator_t *iter)
 {
@@ -186,6 +214,9 @@ void *list_next(list_iterator_t *iter)
 
     return data;
 }
+
+
+
 
 void list_resetiterator(list_iterator_t *iter)
 {

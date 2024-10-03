@@ -41,16 +41,24 @@ void gc_register(void *address) {
 // zero at this point the memory can be safely freed, otherwise it must be kept
 // intact. 
 void gc_free(void *address) {
-    if (!address) return;  // Sjekk om addressen er NULL og returner umiddelbart hvis det er tilfelle
+    if (!address) return;  // Sjekk om adressen er NULL og returner umiddelbart hvis det er tilfellet
 
-    int *reference_count = (int *)((char *)address - sizeof(int));  // Få tilgang til referansetelleren
-    assert(*reference_count > 0);  // Sjekk at referansetelleren er gyldig før den dekrementeres
+    // Få tilgang til referansetelleren
+    int *reference_count = (int *)((char *)address - sizeof(int));
 
-    (*reference_count)--;  // Dekrementer referansetelleren
+    // Sjekk om referansetelleren er gyldig og returner hvis den er 0 eller mindre
+    if (*reference_count <= 0) {
+        return;
+    }
 
+    // Decrementer referansetelleren
+    (*reference_count)--;
+
+    // Hvis referansetelleren når 0, frigjør minnet
     if (*reference_count == 0) {
-        free(reference_count);  // Frigjør hele minneblokken hvis referansetelleren har nådd 0
+        free(reference_count);  // Frigjør hele minneblokken når referansetelleren har nådd 0
     }
 }
+
 
 
